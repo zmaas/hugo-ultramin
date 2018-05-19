@@ -1,11 +1,8 @@
 {{ partial "header.html" . }}
-
-<style>
-  {{ readFile "/themes/ultramin/static/css/card.css" | safeCSS }}
-</style>
+{{ partial "card.html" . }}
 
 <section id=content>
-  <ul class=posts_listing>
+  <ul id="cards">
     {{ range where .Site.Pages "Section" .Section }}
     {{ if not .Params.hidden }}
       <li>

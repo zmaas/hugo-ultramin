@@ -9,10 +9,6 @@
     <meta name="referrer" content="no-referrer">
     {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
 
-    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
-
     <title>
       {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
       {{ if eq $url "/" }}
@@ -32,6 +28,7 @@
 
   <body>
     <section id=nav>
+      <nav>
       <h1>
           <a href="/"> {{ .Site.Params.sitename }} </a>
         <ul>
@@ -39,4 +36,5 @@
           <li><a href="{{ .URL }}">/{{ .Name }}/</a></li>
         {{ end }}
       </ul></h1>
+</nav>
     </section>
