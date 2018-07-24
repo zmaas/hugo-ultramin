@@ -1,21 +1,18 @@
 {{ partial "header.html" . }}
-{{ partial "card.html" . }}
 
 <section id=content>
-  <ul id="cards">
-    {{ range where .Site.Pages "Section" .Section }}
-    {{ if not .Params.hidden }}
-      <li>
-<div class="card">
-        <h1><a href="{{ .Permalink }}">{{ .Title }} ({{ .Params.lang }})</a></h1>
-        <div class="container">
-        <p> {{ .Description }}</p>
-        </div>
-</div>
-      </li>
+  <div class="entry-content">
+    <p>{{ .Content }}</p>
+  </div>
+
+  <div id=links>
+    {{ if .PrevInSection }}
+      <a class="basic-alignment left" href="{{.PrevInSection.Permalink}}">&laquo; {{.PrevInSection.Title}}</a>
     {{ end }}
+    {{ if .NextInSection }}
+      <a class="basic-alignment left" href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}} &raquo;</a>
     {{ end }}
-  </ul>
+  </div>
 </section>
 
 {{ partial "footer.html" . }}

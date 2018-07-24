@@ -1,16 +1,19 @@
 {{ partial "header.html" . }}
 
+<h1>
+  me:
+<h1>
+
+<p>{{ .Content }}</p>
+
 <section id=posts>
+  <h2>
+  recent:
+  </h2>
   <ul class=posts_listing>
     {{ range where .Site.Pages "Type" "post"}}
       <li>
-        <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-  <div id=sub-header>
-    {{ .Date.Format (.Site.Params.dateform | default "January 2006") }} · {{ .ReadingTime }} minute read
-  </div>
-<p>
-        {{.Summary}} <a href="{{ .Permalink }}">(continued...)</a>
-</p>
+        <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
       </li>
     {{ end }}
   </ul>
